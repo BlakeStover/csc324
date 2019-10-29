@@ -99,7 +99,24 @@ function sortTable() {
   }
 }
 
+// sorting the table by year
 
+const year = document.querySelector("#Year");
+
+year.addEventListener("click", function() {
+  function compare2(a, b) {
+    if(a.birthYear < b.birthYear){
+      return -1;
+    }
+    if(a.birthYear > b.birthYear){
+      return 1;
+    }
+    return 0;
+  }
+  table.innerHTML = "";
+  generateTableHead(table, data);
+  generateTable(table, artists.sort(compare2));
+})
 
 
 
